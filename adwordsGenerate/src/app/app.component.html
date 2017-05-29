@@ -1,11 +1,38 @@
+<section>
+
 <h1>
-  {{title}}
+  Adwords generator
 </h1>
 
+1 - Choisir le nombre de champs<br />
+2 - Dans chaque champ, indiquer toutes les variantes d'un mot séparées par ";" (sans ; à la fin)<br />
+ex : creme;crème;créme<br />
+ex2 : antiage;antiâge;anti age;anti âge;anti-age;anti-âge<br />
+(Les espaces seront intégrés aux mots)<br />
+3 ==> Go petite licorne !<br />
+</section>
+
+<section>
+<button (click)="addField()">Un champ de +</button>
+<button (click)="removeField()">Un champ de moins</button>
+</section>
+
+<section>
 <div *ngFor="let i of indexes" >
 Mot {{i}} :
-{{mots[i]}}
-  <input [(ngModel)]="mots[i]"><br />
+  <input [(ngModel)]="mots[i]"><br /><br />
 </div>
+<div (click)="generateList()" style="text-align:center; width : 200px;">
+clique ici pour la magie !!!<br />
+||<br />
+||<br />
+V<br />
+<img width=200 class="img-responsive" style="cursor:pointer;" src="assets/unicorn.jpg">
+</div>
+</section>
 
-<button (click)="generateList()">GO !</button>
+<section>
+<div *ngFor="let word of generatedWordJoinsList">
+  {{word}}
+</div>
+</section>
